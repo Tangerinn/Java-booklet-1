@@ -1,61 +1,18 @@
-class BinarySearch
-{
-    static int binarySearch(int [] arr, int target)
-    {
+class BinarySearch {
+    static int binarySearch(int [] arr, int target) {
         int start = 0;
         int end = arr.length-1;
 
-        while(start<=end)
-        {
+        while(start <= end) {
             int mid = start + (end-start)/2;
-            if(arr[mid] == target)
-            {
+            if (arr[mid] == target) {
                 return mid;
-            }
-            else if(target > arr[mid])
-            {
+            } else if (target > arr[mid]) {
                 start = mid + 1;
-            }
-            else
-            {
-                end = mid-1;
+            } else {
+                end = mid - 1;
             }
         }
         return -1;
-    }
-
-    public static void main(String[] args)
-    {
-        int [] arr = {1,2,3,4,5,6,7};
-        int target = 3;
-
-        System.out.println(target + " is at index : "+binarySearch(arr, target));
-    }
-}
-
-// recursive approach : 
-static int binarySearch(int [] arr, int start, int end, int target)
-    {
-            int mid = start + (end-start)/2;
-            if(arr[mid] == target)
-            {
-                return mid;
-            }
-            else if(target > arr[mid])
-            {
-                start = mid + 1;
-            }
-            else
-            {
-                end = mid-1;
-            }
-       return binarySearch(arr, start, end, target);
-    }
-    public static void main(String[] args)
-    {
-        int [] arr = {1,2,3,4,5};
-        int target = 2;
-
-        System.out.println(target + " is at index : "+binarySearch(arr, 0, arr.length-1, target));
     }
 }
