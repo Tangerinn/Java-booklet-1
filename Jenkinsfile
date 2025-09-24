@@ -1,14 +1,17 @@
 pipeline {
     agent any
+
     stages {
         stage('Build') {
             steps {
-                sh 'javac BinarySearch.java'
+                echo 'Compiling the BinarySearch and BinarySearchTest files...'
+                sh 'javac -cp junit-4.13.2.jar:. BinarySearch.java BinarySearchTest.java'
             }
         }
-        stage('Run') {
+        stage('Test') {
             steps {
-                sh 'java BinarySearch'
+                echo 'Running automated test cases...'
+                sh 'java -cp junit-4.13.2.jar:. org.junit.runner.JUnitCore BinarySearchTest'
             }
         }
     }
